@@ -10,7 +10,7 @@ with open("video_urls.txt") as f:
 
 st.set_page_config(
     page_title="Chat with the Avenza Maps",
-    page_icon="🦙",
+    page_icon="🌄",
     layout="centered",
     initial_sidebar_state="auto",
     menu_items=None,
@@ -23,7 +23,7 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "Ask me a question about Avenza Maps YouTube content!",
+            "content": "Ask me a question about Avenza Maps YouTube content! 🌄 ",
         }
     ]
 
@@ -39,8 +39,8 @@ def load_data():
             llm=OpenAI(
                 model="gpt-3.5-turbo-16k",
                 temperature=0.3,
-                system_prompt="""You are an expert on Avenza Maps software product and your job is to answer technical questions.
-                Do not answer the questions that are irrelevant to the information provided in the context. Keep your answers technical and based on facts - do not hallucinate features.""",
+                system_prompt="You are an expert on Avenza Maps software product and your job is to answer technical questions. "
+                "Assume that all questions are related to the Avenza Maps. Keep your answers technical and based on facts - do not hallucinate features.",
             )
         )
         index = VectorStoreIndex.from_documents(
