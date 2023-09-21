@@ -31,10 +31,10 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(
-        text="Loading and indexing the Avenza Maps docs – hang tight! This should take 1-2 minutes."
+        text="Loading and indexing the Avenza Maps YouTube content – hang tight! This should take 1-2 minutes."
     ):
         loader = YoutubeTranscriptReader()
-        documents = loader.load_data(ytlinks=youtube_links[:20])
+        documents = loader.load_data(ytlinks=youtube_links)
         service_context = ServiceContext.from_defaults(
             llm=OpenAI(
                 model="gpt-3.5-turbo-16k",
